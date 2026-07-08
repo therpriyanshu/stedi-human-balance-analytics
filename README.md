@@ -1,37 +1,41 @@
-# Purpose of This Repo
+# STEDI Human Balance Analytics
 
-This repo is meant to be used to keep things organized during content development and act as the source of truth for all projects and exercises related to this course.
+## Project Overview
 
-## Folder Structure
+This project implements a data lake solution for the STEDI Human Balance Analytics application using AWS services. The pipeline processes raw sensor and customer data through Landing, Trusted, and Curated layers to prepare high-quality datasets for machine learning.
 
-### Lesson Folder
+## Technologies Used
 
-This repo contains a folder for each `lesson` and one `project` folder.
+- AWS S3
+- AWS Athena
+- AWS Glue
+- AWS Glue Data Catalog
+- SQL
+- PySpark
 
-Example
+## Project Workflow
+
+1. Upload raw JSON data to Amazon S3.
+2. Create external tables in Athena.
+3. Build AWS Glue ETL jobs to transform the data.
+4. Store processed data in Trusted and Curated layers.
+5. Validate the output using Athena queries.
+
+## Data Pipeline
+
+- Landing → Raw customer, accelerometer, and step trainer data
+- Trusted → Filtered and validated records
+- Curated → Clean datasets prepared for analytics and machine learning
+
+## Project Structure
+
 ```
-lesson-1-hello
-lesson-2-world
-lesson-3-foo
-lesson-4-bar
-project
+sql/
+dataset/
+screenshots/
+README.md
 ```
 
-Each `lesson` folder is named using the naming convention of `lesson-#-name-of-lesson`.
+## Outcome
 
-Example
-```
-lesson-1-hello
-```
-
-Four lesson folders have been provided as a template; However, you may need to add more or possibly use less than four depending on what is needed.
-
-If you require an additional lesson folder, you can make a copy of the folder and paste it into the root directory.
-
-### Exercises Folder
-
-Each `lesson` folder contains an `exercises` folder. This `exercises` folder should contain all files and instructions necessary for the exercises along with the solution. The solutions for these exercises will be shared with students. See the `README` in the `exercises` folder for information about folder structure.
-
-### Project Folder
-
-The `project` folder should contain all files and instructions necessary for setup. If possible, a set of instructions should be provided for both Udacity workspaces and a way to work locally (for both MacOS and Windows OS). At a minimum, one set of instructions should be provided. A `README` template has been provided in the project folder. This template layout should be used to write your README.
+The pipeline successfully transforms raw data into curated datasets that can be used for analytics while ensuring customer consent requirements are respected.
